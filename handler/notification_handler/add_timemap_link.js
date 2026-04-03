@@ -1,5 +1,5 @@
 const fs = require('fs');
-const jp = require('jsonpath');
+const { JSONPath } = require('jsonpath-plus');
 const logger = require('../../lib/util.js').getLogger();
 
 /**
@@ -16,7 +16,7 @@ async function handle({path,options,config,notification}) {
     try {
         const meta = parseAsJSON(`${eventlog['path']}.meta`);
      
-        const timemap = jp.query(notification,'$.object.id');
+        const timemap = JSONPath({ path: '$.object.id' , json: notification });
         const relation = `<${timemap}> ; rel="timemap"`;
 
         let links = meta['Link'] || [];

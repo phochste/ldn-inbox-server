@@ -1,4 +1,4 @@
-const jp = require('jsonpath');
+const { JSONPath } = require('jsonpath-plus');
 const logger = require('../../lib/util.js').getLogger();
 
 /**
@@ -28,7 +28,7 @@ async function handle({path,options,config,notification}) {
                 const path  = anyPart['path'];
                 const value = anyPart['value'];
                 
-                const jsonValue = jp.query(notification,path);
+                const jsonValue = JSONPath({ path: path, json: notification });
 
                 if (jsonValue !== null || jsonValue !== undefined) {
                     if (Array.isArray(jsonValue)) {
