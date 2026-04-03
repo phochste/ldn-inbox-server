@@ -1,6 +1,6 @@
 {
   "name": "ldn-inbox-server",
-  "version": "1.8.7",
+  "version": "1.8.8",
   "description": "A demonstration Event Notifications Inbox server",
   "main": "lib/index.js",
   "author": "Patrick Hochstenbach <Patrick.Hochstenbach@UGent.be>",
